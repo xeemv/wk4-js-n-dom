@@ -1,0 +1,19 @@
+{
+  "name": "wk4-js-n-dom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xeemv/wk4-js-n-dom.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xeemv/wk4-js-n-dom/issues"
+  },
+  "homepage": "https://github.com/xeemv/wk4-js-n-dom#readme"
+}
