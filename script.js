@@ -77,3 +77,55 @@ console.log(buttonsByClassName);
 - Next line underneath of this comment is how it will print to the console on the browser
 HTMLCollection { 0: button.my-class, 1: button.my-class, length: 2 }
 */
+/*======================================================*/
+
+
+
+// Finding Elements by CSS Selectors
+/*======================================================*/
+// ****find an element by class****
+
+
+/*
+ - Query selector all method
+    - pass in a string that is a valid css selector
+    - Means = how we would write a css rule to style a specific element/elements that is normally styled by a given css will be returned
+    
+- for practice:
+    - will create a new h1 element
+    - name it class="my-button"
+    - we will grab "my-class" from the dom
+        - go one step further
+            - we'll only grab it if it is a button
+ */
+let buttonsByCSSSelector = document.querySelectorAll('button.my-class');
+console.log(buttonsByCSSSelector);
+/*
+- in this example:
+    - document.querySelectorAll('button.my-class')
+        - button = string
+        - . = class (we are looking for class using the period)
+        - my-class = class name
+
+
+- result: 
+    - NodeList [ button.my-class, button.my-class]
+​        - 0: <button class="my-class">​ = button 3
+        - 1: <button class="my-class"> = button 5
+length: 2
+*/
+let buttonsByCSSSelector2 = document.querySelectorAll('.my-class');
+console.log(buttonsByCSSSelector2);
+/* 
+- next example:
+    - document.querySelectorAll('.my-class')
+        - this will return all elements with a class called, "my-class"
+
+- result:
+    - NodeList(3) [ button.my-class, button.my-class, h1.my-class]
+​        - 0: <button class="my-class">​
+        - 1: <button class="my-class">​
+        - 2: <h1 class="my-class">
+​length: 3
+*/
+
