@@ -128,4 +128,9 @@ console.log(buttonsByCSSSelector2);
         - 2: <h1 class="my-class">
 ​length: 3
 */
+/*======================================================*/
 
+
+
+// Interacting with the DOM
+/*======================================================*/
