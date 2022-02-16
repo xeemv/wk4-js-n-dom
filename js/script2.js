@@ -86,14 +86,14 @@ document.getElementById('remove').addEventListener('click', () => {      // this
                 - completely remove goodye/hello
 */
 /*======================================================*/
-// Interacting with the DOM ---> how to add elements ------left off at 9:49 minutes out of 17:23.
+// Interacting with the DOM ---> how to add elements 
 /*======================================================*/
 
 document.getElementById("add").addEventListener("click", () => {
     var parent = document.getElementById("paragraphs");     // this is the id found w/in the div element
     var newElement = document.createElement('p');           // creating a new element, the <p> element
-    newElement.innerHTML = 'this is a new paragraph.';      // what will be pushed through and displayed on the browswer
-    parent.appendChild(newElement);                         // ta
+    newElement.innerHTML = document.getElementById('new-text').value;      // what will be pushed through and displayed on the browswer
+    parent.appendChild(newElement);                         // append the element to the parent
 })
 
 /*
@@ -113,9 +113,45 @@ document.getElementById("add").addEventListener("click", () => {
             <button id="remove">Remove Paragraph from DOM</button>
             <!-- this code line 12 will remove <p> element -->
             <button id="add">Add new paragraph</button> 
-
-    -
-
-
 */
+/*======================================================*/
+// Interacting with the DOM ---> add an input field to give us control of what the new <p> elements say
+/*======================================================*/
 
+
+
+/* 
+- add a new element to html in order to give us control of what the new <p> element will say
+
+    <div id="paragraphs">
+        <p id="content">Hello</p>
+    </div>
+    <button id="btn">Change Value</button>
+    <button id="remove">Remove Paragraph from DOM</button>
+    <!-- this code line 12 will remove <p> element -->
+    <button id="add">Add new paragraph</button> 
+    <input type="text" id="new-text">       <-------------- this is the new element!!
+
+
+- the input element:
+    - this will create an open area for us to free text what ever we want to show up on the dom
+
+
+    **change our code from the section above:
+    document.getElementById("add").addEventListener("click", () => {
+    var parent = document.getElementById("paragraphs");     // this is the id found w/in the div element
+    var newElement = document.createElement('p');           // creating a new element, the <p> element
+    newElement.innerHTML = '';      // what will be pushed through and displayed on the browswer
+    parent.appendChild(newElement);                         // append the element to the parent
+    })
+
+    - from the "newElement.innerHTML = " section (on line 144)
+        - remove the --> 'this is a new paragraph.'
+        - newElement.innerHTML = document.getElementById('new-text').value;   <----- new code line
+            - new-text = the element
+            - anything we type into the open input field on the browser will display
+                - test this:
+                    - free text in what you want
+                    - click on the "add new paragraph" button
+                    - it should print it to the browser right underneath the "hello/goodbye" div content
+*/
