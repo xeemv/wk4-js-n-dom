@@ -58,10 +58,17 @@ button.addEventListener('click', () => {
 // Interacting with the DOM ---> how to remove elements
 /*======================================================*/
 
+// some of the codes were added afterwards
+
 document.getElementById('remove').addEventListener('click', () => {      // this is for the remove button element
-    content.parentNode.removeChild(content);
+   let idToRemove = document.getElementById('remove-id').value;     // added this
+   let elementToRemove = document.getElementById(idToRemove);       // added this
+    // content.parentNode.removeChild(content);        <----- changed this code to code on line 67
+    content.parentNode.removeChild(elementToRemove); 
+    document.getElementById('remove-id').value = '';                // added this
 });
 
+let id = 0;         // it will start at 0 and increment at this value
 /*
 - add more elements to the html file
     <p id="content">Hello</p>
@@ -93,8 +100,13 @@ document.getElementById("add").addEventListener("click", () => {
     var parent = document.getElementById("paragraphs");     // this is the id found w/in the div element
     var newElement = document.createElement('p');           // creating a new element, the <p> element
     newElement.innerHTML = document.getElementById('new-text').value;      // what will be pushed through and displayed on the browswer
+    newElement.setAttribute('id', id++);                    // this was added at the end of the class video
+    // line 103 is to keep track of that element id and add it to each new element
     parent.appendChild(newElement);                         // append the element to the parent
-})
+    document.getElementById('new-text').value = '';
+});
+
+
 
 /*
 - follows a straight forward process
@@ -118,8 +130,6 @@ document.getElementById("add").addEventListener("click", () => {
 // Interacting with the DOM ---> add an input field to give us control of what the new <p> elements say
 /*======================================================*/
 
-
-
 /* 
 - add a new element to html in order to give us control of what the new <p> element will say
 
@@ -131,18 +141,19 @@ document.getElementById("add").addEventListener("click", () => {
     <!-- this code line 12 will remove <p> element -->
     <button id="add">Add new paragraph</button> 
     <input type="text" id="new-text">       <-------------- this is the new element!!
-
+    
 
 - the input element:
-    - this will create an open area for us to free text what ever we want to show up on the dom
+    - this will create an open area for us to free text whatever we want to show up on the dom
 
 
     **change our code from the section above:
     document.getElementById("add").addEventListener("click", () => {
     var parent = document.getElementById("paragraphs");     // this is the id found w/in the div element
     var newElement = document.createElement('p');           // creating a new element, the <p> element
-    newElement.innerHTML = '';      // what will be pushed through and displayed on the browswer
+    newElement.innerHTML = '';      // what will be pushed through and displayed on the browser
     parent.appendChild(newElement);                         // append the element to the parent
+    document.getElementById('new-text').value = '';
     })
 
     - from the "newElement.innerHTML = " section (on line 144)
@@ -154,4 +165,49 @@ document.getElementById("add").addEventListener("click", () => {
                     - free text in what you want
                     - click on the "add new paragraph" button
                     - it should print it to the browser right underneath the "hello/goodbye" div content
+
+    - add this code line ===> document.getElementById('new-text').value = '';
+        - this will clear the input element so that you can free text in there
+        - that is an empty string
+*/
+/*======================================================*/
+// Interacting with the DOM ---> how to delete an item
+/*======================================================*/
+/*
+- how to delete a specific item that we added?
+    - will need:
+        - a unique way to identify each <p> element
+            - to accomplish this: 
+                - we will need to dynamically assign IDs to each paragraph when we create it
+                - use variables to hold the current ID
+                - increment the variable each time we add a new <p> element
+                - also create new text input
+                    - will allow us to select which element to delete
+
+- how our html will look:
+
+    <div id="paragraphs">
+        <p id="content">Hello</p>
+    </div>
+    <button id="btn">Change Value</button><br>
+    <input id="remove-id">                       <--this will place the input field on the (l) side of the row
+    <button id="remove">Remove Paragraph from DOM</button><br>   <--right side of the row, button to remove <p>
+    <!-- this code line 12 will remove <p> element -->
+    <input type="text" id="new-text">              <--this will place the input field on the (l) side of the row
+    <button id="add">Add new paragraph</button>     <--right side of the row, button to add a <p>
+  
+
+- how the code would look like in this js file:
+    - changed code from above:
+    
+    
+    document.getElementById('remove').addEventListener('click', () => {   // this is for the remove button element
+   let idToRemove = document.getElementById('remove-id').value;     // added this
+   let elementToRemove = document.getElementById(idToRemove);       // added this
+    // content.parentNode.removeChild(content);        <----- changed this code to code on line 67
+    content.parentNode.removeChild(elementToRemove); 
+    document.getElementById('remove-id').value = '';                // added this
+    });
+
+
 */
