@@ -17,6 +17,7 @@
   "homepage": "https://github.com/xeemv/wk4-js-n-dom#readme",
   "description": "",
   "dependencies": {
-    "bootstrap": "^5.0.2"
+    "bootstrap": "^5.0.2",
+    "jquery": "^3.6.0"
   }
 }
